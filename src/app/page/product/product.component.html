@@ -1,0 +1,61 @@
+<div style="width: 100%;">
+    <div style="width: 50%;display: inline-block">
+<p-table [value]="cardList" selectionMode="single" [(selection)]="selectedCard" dataKey="tblCardId" responsiveLayout="scroll"
+(onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>NickName</th>
+            <th>Card Type</th>
+            <th>Account Number</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-card>
+        <tr [pSelectableRow]="card">
+            <td>{{card.tblCardNickname}}</td>
+            <td>{{card.tblCardstype}}</td>
+            <td>{{card.tblCardNumber}}</td>
+        </tr>
+    </ng-template>
+</p-table>
+</div>
+<div style="width: 50%;display: inline-block" *ngIf="selectedCard !=null">
+
+    <div id="selection" class="center">
+		<div><label id="j_idt291" class="label">Selected Credit Card:</label>
+		</div>
+
+
+		<ul class="form" style="padding-top: 3em;">
+			<li class="row">
+				<div class="cell"><label id="j_idt293" class="label2" style="padding-right:1em; padding-left: 0.3em;">Nickname:*</label>
+				</div>
+				<div class="cell"><label id="nickName" class="label2">no importa</label>
+				</div>
+			</li>
+			<li class="row">
+				<div class="cell"><label id="j_idt296" class="label2" style="padding-right:1em; padding-left: 0.3em;">Card Type:*</label>
+				</div>
+				<div class="cell" style="min-width: 9em;"><label id="typeOfCard" class="label2">visa</label>
+				</div>
+			</li>
+
+			<li class="row">
+				<div class="cell"><label id="j_idt299" class="label" style="padding-right:1em; padding-left: 0.3em;">Account Number:*</label>
+				</div>
+				<div class="cell" style="min-width: 9em;"><label id="nameAn" class="label2">************1111</label>
+				</div>
+			</li>
+
+			
+
+
+			<li class="row">
+				<div class="cell" style="position: relative;">
+
+				</div>
+			</li>
+
+		</ul></div>
+
+</div>
+</div>
