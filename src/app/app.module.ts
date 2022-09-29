@@ -8,6 +8,13 @@ import { TableModule } from 'primeng/table';
 import { HttpClientModule } from '@angular/common/http';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {SplitButtonModule} from 'primeng/splitbutton';
+import {MenuModule} from 'primeng/menu';
+import {MenubarModule} from 'primeng/menubar';
+import {SidebarModule} from 'primeng/sidebar';
+import { ButtonModule } from 'primeng/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {PanelMenuModule} from 'primeng/panelmenu';
+import {PaginatorModule} from 'primeng/paginator';
 
 @NgModule({
   declarations: [
@@ -20,7 +27,14 @@ import {SplitButtonModule} from 'primeng/splitbutton';
     TableModule,
     HttpClientModule,
     ProgressSpinnerModule,
-    SplitButtonModule
+    SplitButtonModule,
+    MenuModule,
+    MenubarModule,
+    SidebarModule,
+    ButtonModule,
+    BrowserAnimationsModule,
+    PanelMenuModule,
+    PaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -15,6 +15,22 @@
     }
 }
 
-.label{
+.label {
     color: #1D4ED8;
+}
+
+::ng-deep p-menubarsub.p-element {
+    justify-content: flex-end;
+    display: flex;
+    width: 100%;
+}
+
+.menu2 {
+    display: none;
+}
+
+@media only screen and (max-width: 1260px) {
+    .menu2 {
+        display: block;
+    }
 }

@@ -1,61 +1,65 @@
-<div style="width: 100%;">
-    <div style="width: 50%;display: inline-block">
-<p-table [value]="cardList" selectionMode="single" [(selection)]="selectedCard" dataKey="tblCardId" responsiveLayout="scroll"
-(onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)">
-    <ng-template pTemplate="header">
-        <tr>
-            <th>NickName</th>
-            <th>Card Type</th>
-            <th>Account Number</th>
-        </tr>
+<p-menubar [model]="items">
+    <ng-template pTemplate="start">
+        <img class="logo" src="../../../assets/img/logo.png" />
     </ng-template>
-    <ng-template pTemplate="body" let-card>
-        <tr [pSelectableRow]="card">
-            <td>{{card.tblCardNickname}}</td>
-            <td>{{card.tblCardstype}}</td>
-            <td>{{card.tblCardNumber}}</td>
-        </tr>
-    </ng-template>
-</p-table>
-</div>
-<div style="width: 50%;display: inline-block" *ngIf="selectedCard !=null">
+</p-menubar>
 
-    <div id="selection" class="center">
-		<div><label id="j_idt291" class="label">Selected Credit Card:</label>
-		</div>
+<p-sidebar [(visible)]="visibleSidebar1">
+    <p-panelMenu [model]="items"></p-panelMenu>
+</p-sidebar>
+
+<p-button class="menu2" type="button" (click)="visibleSidebar1 = true" icon="pi pi-plus" label="Menu 2"></p-button>
+
+<div class="grid p-4">
+    <div class="col-12 md:col-6 lg:col-6">
+        <p-table [value]="cardList" [paginator]="true" [rows]="2" selectionMode="single" [(selection)]="selectedCard" dataKey="tblCardId" responsiveLayout="scroll" (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>NickName</th>
+                    <th>Card Type</th>
+                    <th>Account Number</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-card>
+                <tr [pSelectableRow]="card">
+                    <td>{{card.tblCardNickname}}</td>
+                    <td>{{card.tblCardstype}}</td>
+                    <td>{{card.tblCardNumber}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+    <div class="col-12 md:col-6 lg:col-6" *ngIf="selectedCard !=null">
+
+        <div id="selection" class="card p-component">
+            <h3>Selected Credit Card:</h3>
+            <div class="field grid">
+                <label for="nickname" class="col-12 mb-2 md:col-3 md:mb-0">Nickname</label>
+                <div class="col-12 md:col-9">
+                    <input id="nickname" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                </div>
+            </div>
+            <div class="field grid">
+                <label for="lastname" class="col-12 mb-2 md:col-3 md:mb-0">Lastname</label>
+                <div class="col-12 md:col-9">
+                    <input id="lastname" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                </div>
+            </div>
+            <div class="field grid">
+                <label for="cardType" class="col-12 mb-2 md:col-3 md:mb-0">Card Type</label>
+                <div class="col-12 md:col-9">
+                    <input id="cardType" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                </div>
+            </div>
+            <div class="field grid">
+                <label for="accntNumer" class="col-12 mb-2 md:col-3 md:mb-0">Account Number</label>
+                <div class="col-12 md:col-9">
+                    <input id="accntNumer" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                </div>
+            </div>
+        </div>
 
 
-		<ul class="form" style="padding-top: 3em;">
-			<li class="row">
-				<div class="cell"><label id="j_idt293" class="label2" style="padding-right:1em; padding-left: 0.3em;">Nickname:*</label>
-				</div>
-				<div class="cell"><label id="nickName" class="label2">no importa</label>
-				</div>
-			</li>
-			<li class="row">
-				<div class="cell"><label id="j_idt296" class="label2" style="padding-right:1em; padding-left: 0.3em;">Card Type:*</label>
-				</div>
-				<div class="cell" style="min-width: 9em;"><label id="typeOfCard" class="label2">visa</label>
-				</div>
-			</li>
 
-			<li class="row">
-				<div class="cell"><label id="j_idt299" class="label" style="padding-right:1em; padding-left: 0.3em;">Account Number:*</label>
-				</div>
-				<div class="cell" style="min-width: 9em;"><label id="nameAn" class="label2">************1111</label>
-				</div>
-			</li>
-
-			
-
-
-			<li class="row">
-				<div class="cell" style="position: relative;">
-
-				</div>
-			</li>
-
-		</ul></div>
-
-</div>
+    </div>
 </div>
