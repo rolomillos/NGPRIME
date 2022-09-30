@@ -18,7 +18,9 @@
             <p-button type="button" icon="pi pi-chevron-right" (click)="next()" [disabled]="isLastPage()" styleClass="p-button-text"></p-button>
         </div>
         <p-table [value]="cardList" [paginator]="true" [rows]="size" selectionMode="single" [(selection)]="selectedCard" dataKey="tblCardId" responsiveLayout="scroll" (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)"
-        (onPage)="setPage($event)" [totalRecords]="totalRecords" [lazy]="true" (onLazyLoad)="loadData($event)"> 
+        (onPage)="setPage($event)" [totalRecords]="totalRecords" [lazy]="true" (onLazyLoad)="loadData($event)"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,20,30]"
+        [scrollable]="true" scrollHeight="400px"> 
             <ng-template pTemplate="header">
                 <tr>
                     <th>NickName</th>

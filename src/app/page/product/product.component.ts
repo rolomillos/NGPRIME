@@ -26,7 +26,7 @@ export class ProductComponent implements OnInit {
     constructor(private cardService: CardService) {
         this.page = 0;
         this.userId = 197;
-        this.size = 5;
+        this.size = 10;
         this.loading=false;
     }
 
@@ -56,7 +56,8 @@ export class ProductComponent implements OnInit {
 
     loadData(event: LazyLoadEvent) {
         this.loading = true;
-        //debugger;
+        debugger;
+        this.size = event.rows!;
         //console.log(event);
         this.cardService.getCardList(this.userId, this.page,this.size).subscribe(response => {
             //console.log(response);
