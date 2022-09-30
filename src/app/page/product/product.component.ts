@@ -69,7 +69,7 @@ export class ProductComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.getCardList();
+        //this.getCardList();
 
         this.items = [
             {
