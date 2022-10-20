@@ -1,73 +1,81 @@
-<p-menubar [model]="items">
-    <ng-template pTemplate="start">
+<div class="flex flex-row justify-content-between menu2">
+    <img class="logo" src="../../../assets/img/logo.png" />
+
+    <button pButton type="button" (click)="visibleSidebar1 = true" icon="pi pi-bars" iconPos="left" class="p-button-outlined"></button>
+
+</div>
+
+<div class="grid">
+    <div class="col-2 menu1 ">
         <img class="logo" src="../../../assets/img/logo.png" />
-    </ng-template>
-</p-menubar>
+        <div class="mt-5">
+            <p-panelMenu [model]="items"></p-panelMenu>
+        </div>
+    </div>
+    <div class="col-12 lg:col-12 xl:col-10">
+        <div class="grid p-4">
+            <div class="col-12 md:col-6 lg:col-6">
+                <div class="mb-3">
+                    <p-button type="button" icon="pi pi-chevron-left" (click)="prev()" [disabled]="isFirstPage()" styleClass="p-button-text"></p-button>
+                    <p-button type="button" icon="pi pi-refresh" (click)="reset()" styleClass="p-button-text"></p-button>
+                    <p-button type="button" icon="pi pi-chevron-right" (click)="next()" [disabled]="isLastPage()" styleClass="p-button-text"></p-button>
+                </div>
+                <p-table [value]="cardList" [paginator]="true" [rows]="size" selectionMode="single" [(selection)]="selectedCard" dataKey="tblCardId" responsiveLayout="scroll" (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)" (onPage)="setPage($event)"
+                    [totalRecords]="totalRecords" [lazy]="true" (onLazyLoad)="loadData($event)" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,20,30]" [scrollable]="true" scrollHeight="400px">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>NickName</th>
+                            <th>Card Type</th>
+                            <th>Account Number</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-card>
+                        <tr [pSelectableRow]="card">
+                            <td>{{card.tblCardNickname}}</td>
+                            <td>{{card.tblCardstype}}</td>
+                            <td>{{card.tblCardNumber}}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+            <div class="col-12 md:col-6 lg:col-6" *ngIf="selectedCard !=null">
+
+                <div id="selection" class="card p-component">
+                    <h3>Selected Credit Card:</h3>
+                    <div class="field grid">
+                        <label for="nickname" class="col-12 mb-2 md:col-3 md:mb-0">Nickname</label>
+                        <div class="col-12 md:col-9">
+                            <input id="nickname" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                        </div>
+                    </div>
+                    <div class="field grid">
+                        <label for="lastname" class="col-12 mb-2 md:col-3 md:mb-0">Lastname</label>
+                        <div class="col-12 md:col-9">
+                            <input id="lastname" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                        </div>
+                    </div>
+                    <div class="field grid">
+                        <label for="cardType" class="col-12 mb-2 md:col-3 md:mb-0">Card Type</label>
+                        <div class="col-12 md:col-9">
+                            <input id="cardType" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                        </div>
+                    </div>
+                    <div class="field grid">
+                        <label for="accntNumer" class="col-12 mb-2 md:col-3 md:mb-0">Account Number</label>
+                        <div class="col-12 md:col-9">
+                            <input id="accntNumer" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <p-sidebar [(visible)]="visibleSidebar1">
     <p-panelMenu [model]="items"></p-panelMenu>
 </p-sidebar>
-
-<p-button class="menu2" type="button" (click)="visibleSidebar1 = true" icon="pi pi-plus" label="Menu 2"></p-button>
-
-<div class="grid p-4">
-    <div class="col-12 md:col-6 lg:col-6">
-        <div class="mb-3">
-            <p-button type="button" icon="pi pi-chevron-left" (click)="prev()" [disabled]="isFirstPage()" styleClass="p-button-text"></p-button>
-            <p-button type="button" icon="pi pi-refresh" (click)="reset()" styleClass="p-button-text"></p-button>
-            <p-button type="button" icon="pi pi-chevron-right" (click)="next()" [disabled]="isLastPage()" styleClass="p-button-text"></p-button>
-        </div>
-        <p-table [value]="cardList" [paginator]="true" [rows]="size" selectionMode="single" [(selection)]="selectedCard" dataKey="tblCardId" responsiveLayout="scroll" (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)"
-        (onPage)="setPage($event)" [totalRecords]="totalRecords" [lazy]="true" (onLazyLoad)="loadData($event)"
-        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,20,30]"
-        [scrollable]="true" scrollHeight="400px"> 
-            <ng-template pTemplate="header">
-                <tr>
-                    <th>NickName</th>
-                    <th>Card Type</th>
-                    <th>Account Number</th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-card>
-                <tr [pSelectableRow]="card">
-                    <td>{{card.tblCardNickname}}</td>
-                    <td>{{card.tblCardstype}}</td>
-                    <td>{{card.tblCardNumber}}</td>
-                </tr>
-            </ng-template>
-        </p-table>
-    </div>
-    <div class="col-12 md:col-6 lg:col-6" *ngIf="selectedCard !=null">
-
-        <div id="selection" class="card p-component">
-            <h3>Selected Credit Card:</h3>
-            <div class="field grid">
-                <label for="nickname" class="col-12 mb-2 md:col-3 md:mb-0">Nickname</label>
-                <div class="col-12 md:col-9">
-                    <input id="nickname" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
-                </div>
-            </div>
-            <div class="field grid">
-                <label for="lastname" class="col-12 mb-2 md:col-3 md:mb-0">Lastname</label>
-                <div class="col-12 md:col-9">
-                    <input id="lastname" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
-                </div>
-            </div>
-            <div class="field grid">
-                <label for="cardType" class="col-12 mb-2 md:col-3 md:mb-0">Card Type</label>
-                <div class="col-12 md:col-9">
-                    <input id="cardType" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
-                </div>
-            </div>
-            <div class="field grid">
-                <label for="accntNumer" class="col-12 mb-2 md:col-3 md:mb-0">Account Number</label>
-                <div class="col-12 md:col-9">
-                    <input id="accntNumer" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
-                </div>
-            </div>
-        </div>
-
-
-
-    </div>
-</div>

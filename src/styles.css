@@ -6,6 +6,7 @@ html {
 
 .logo {
     max-width: 270px;
+    width: 100%;
 }
 
 @media only screen and (max-width: 1260px) {
@@ -74,8 +75,4 @@ html {
     }
 }
 
-@media only screen and (max-width: 1330px) {
-    .logo {
-        max-width: 219px;
-    }
-}
+@media only screen and (max-width: 1330px) {}

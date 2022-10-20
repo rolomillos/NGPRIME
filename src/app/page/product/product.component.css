@@ -26,11 +26,14 @@
 }
 
 .menu2 {
-    display: none;
+    display: none !important;
 }
 
 @media only screen and (max-width: 1260px) {
     .menu2 {
-        display: block;
+        display: flex !important;
+    }
+    .menu1 {
+        display: none !important;
     }
 }

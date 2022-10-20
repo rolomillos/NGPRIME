@@ -74,73 +74,84 @@ export class ProductComponent implements OnInit {
 
         this.items = [
             {
+                label: 'Dashboard'
+            },
+            {
                 label: 'Main',
                 items: [
-                    { label: 'Dashboard' },
-                    { label: 'Message Center' },
                     { label: 'Products' },
                     { label: 'Promotions' },
-                    { label: 'Orders' },
-                    { label: 'Ratings and Reviews' },
-                    { label: 'Advertising' },
-                    { label: 'Reports' }
+                    { label: 'Advertising' }
+                ]
+            },
+            
+            {
+                label: 'Messages & Reviews',
+                items: [
+                    { label: 'Message Center' },
+                    { label: 'Ratings & Reviews' }
                 ]
             },
             {
-                label: 'Settings',
+                label: 'Business Categories'
+            },
+            {
+                label: 'ApiTap',
                 items: [
-                    { label: 'Delete', icon: 'pi pi-fw pi-trash' },
-                    { label: 'Refresh', icon: 'pi pi-fw pi-refresh' }
+                    { label: 'Apitap StoreFront' },
+                    { label: 'Store Images' }
+                ]
+            },
+            {
+                label: 'Restaurant Manager'
+            },
+            {
+                label: 'Suscriptions',
+                items: [
+                    { label: 'Suscriptions' },
+                    { label: 'Shopping cart' }
+                ]
+            },
+            {
+                label: 'Locations'
+            },
+            {
+                label: 'Shipping',
+                items: [
+                    { label: 'Shipping Options' },
+                    { label: 'Shippo' }
                 ]
             },
             {
                 label: 'Accounting',
                 items: [
-                    { label: 'Delete', icon: 'pi pi-fw pi-trash' },
-                    { label: 'Refresh', icon: 'pi pi-fw pi-refresh' }
+                    { label: 'Payment Methods' },
+                    { label: 'Orders' }
                 ]
             },
             {
-                label: 'Shipping',
+                label: 'Settings',
                 items: [
-                    { label: 'Delete', icon: 'pi pi-fw pi-trash' },
-                    { label: 'Refresh', icon: 'pi pi-fw pi-refresh' }
+                    { label: 'Profile' },
+                    { label: ' Manage Users' },
+                    { label: ' Security Questions' },
+                    { label: ' Document Manager' },
+                    { label: ' Calendar' },
+                    { label: ' Missing Info' }
+
                 ]
             },
             {
-                label: 'Contact Apitap',
-                items: [
-                    { label: 'Delete', icon: 'pi pi-fw pi-trash' },
-                    { label: 'Refresh', icon: 'pi pi-fw pi-refresh' }
-                ]
+                label: 'Reports'
             },
             {
-                label: 'Help Center',
-                items: [
-                    { label: 'Delete', icon: 'pi pi-fw pi-trash' },
-                    { label: 'Refresh', icon: 'pi pi-fw pi-refresh' }
-                ]
+                label: 'Contact Apitap'
             },
             {
-                label: 'Restaurant Manager',
-                items: [
-                    { label: 'Delete', icon: 'pi pi-fw pi-trash' },
-                    { label: 'Refresh', icon: 'pi pi-fw pi-refresh' }
-                ]
+                label: 'Help Center'
             },
             {
-                label: 'Calendar',
-                items: [
-                    { label: 'Delete', icon: 'pi pi-fw pi-trash' },
-                    { label: 'Refresh', icon: 'pi pi-fw pi-refresh' }
-                ]
-            },
-            {
-                label: 'Log Out',
-                items: [
-                    { label: 'Delete', icon: 'pi pi-fw pi-trash' },
-                    { label: 'Refresh', icon: 'pi pi-fw pi-refresh' }
-                ]
+                label: 'Log Out'
             }
 
 
